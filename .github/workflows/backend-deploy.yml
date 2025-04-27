@@ -1,0 +1,40 @@
+name: 🚀 Backend CI/CD
+
+on:
+  push:
+    paths:
+      - "backend/**"
+      - ".github/workflows/backend-deploy.yml"
+    branches:
+      - main
+
+jobs:
+  build-and-deploy-backend:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Use Node.js 18
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+
+      - name: Install dependencies & generate Prisma client
+        working-directory: backend
+        run: |
+          npm install
+          npx prisma generate
+
+      - name: (Optional) Run backend tests
+        working-directory: backend
+        run: |
+          # npm test or similar
+          echo "No tests configured yet"
+
+      - name: Trigger Render backend deploy
+        env:
+          HOOK: ${{ secrets.RENDER_BACKEND_DEPLOY_HOOK_URL }}
+        run: |
+          curl -X POST "$HOOK"

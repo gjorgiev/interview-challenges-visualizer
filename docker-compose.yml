@@ -1,18 +1,37 @@
 version: "3.8"
 
 services:
+  db:
+    image: postgres:16-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: prisma
+      POSTGRES_PASSWORD: prisma
+      POSTGRES_DB: prisma
+    volumes:
+      - prisma-data:/var/lib/postgresql/data
+
   backend:
-    build: ./backend
+    build:
+      context: ./backend
     ports:
       - "4000:4000"
-    volumes:
-      - ./backend:/app
     environment:
-      - DATABASE_URL=file:./dev.db
-    command: sh -c "npm install && npx prisma migrate deploy && npm run dev"
+      # point at our local Postgres service
+      - DATABASE_URL=postgresql://prisma:prisma@db:5432/prisma
+    depends_on:
+      - db
+    command: >
+      sh -c "
+        npm install &&
+        npx prisma migrate deploy &&
+        node prisma/seed.js &&
+        npm run dev
+      "
 
   frontend:
-    build: ./frontend
+    build:
+      context: ./frontend
     ports:
       - "3000:3000"
     volumes:
@@ -22,4 +41,7 @@ services:
       - CHOKIDAR_USEPOLLING=true
     depends_on:
       - backend
-    command: sh -c "npm install && npm start"
+    command: npm start
+
+volumes:
+  prisma-data:
