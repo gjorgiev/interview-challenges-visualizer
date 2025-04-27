@@ -21,11 +21,9 @@ jobs:
         with:
           node-version: "18"
 
-      - name: Install dependencies & generate Prisma client
+      - name: Install dependencies
         working-directory: backend
-        run: |
-          npm install
-          npx prisma generate
+        run: npm install
 
       - name: (Optional) Run backend tests
         working-directory: backend

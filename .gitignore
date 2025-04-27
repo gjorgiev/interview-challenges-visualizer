@@ -13,5 +13,3 @@ build
 .devcontainer/
 docker-compose.override.yml
 
-# Prisma generated files
-prisma/dev.db

@@ -1,11 +1,8 @@
-node_modules
-npm-debug.log
-Dockerfile
-docker-compose.yml
-.dockerignore
-.env
-.git
-.gitignore
-prisma/dev.db
-prisma/migrations
-coverage
+node_modules;
+npm - debug.log;
+npm;
+debug.log;
+Dockerfile;
+docker;
+compose.yml.dockerignore.env.git.gitignore;
+coverage;

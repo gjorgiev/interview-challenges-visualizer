@@ -2,7 +2,7 @@
 
 An open-source fullstack application to visualize and interactively learn algorithm problems such as Fibonacci sequence, Pointer Jump problems, and more.
 
-Built with **React + Express + Prisma** and fully **Dockerized** for easy deployment and scalability.
+Built with **React + Express + Type ORM** and fully **Dockerized** for easy deployment and scalability.
 
 ---
 
@@ -11,7 +11,7 @@ Built with **React + Express + Prisma** and fully **Dockerized** for easy deploy
 - Dynamic exercise descriptions and solutions fetched from a database
 - Step-by-step visualizations for algorithm problems
 - TailwindCSS for clean UI and fast prototyping
-- Express API + Prisma ORM for backend
+- Express API + Type ORM for backend
 - SQLite for local development (PostgreSQL-ready for production)
 - Docker Compose to orchestrate frontend and backend
 
@@ -20,7 +20,7 @@ Built with **React + Express + Prisma** and fully **Dockerized** for easy deploy
 ## 🛠️ Tech Stack
 
 - Frontend: **React** + **TailwindCSS**
-- Backend: **Express.js** + **Prisma ORM**
+- Backend: **Express.js** + **Type ORM**
 - Database: **SQLite** (local) / **PostgreSQL** (production-ready)
 - Containerization: **Docker** + **Docker Compose**
 
@@ -31,7 +31,7 @@ Built with **React + Express + Prisma** and fully **Dockerized** for easy deploy
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/interview-challenges-visualizer.git
+git clone https://github.com/gjorgiev/interview-challenges-visualizer.git
 cd interview-challenges-visualizer
 ```
 
@@ -42,7 +42,7 @@ cd interview-challenges-visualizer
 ### 3. Run the project
 
 ```bash
-docker compose up --build
+docker-compose up --build
 ```
 
 - Frontend runs at: [http://localhost:3000](http://localhost:3000)

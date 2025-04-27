@@ -4,12 +4,14 @@ services:
   db:
     image: postgres:16-alpine
     restart: always
+    ports:
+      - "5432:5432"
     environment:
-      POSTGRES_USER: prisma
-      POSTGRES_PASSWORD: prisma
-      POSTGRES_DB: prisma
+      POSTGRES_USER: type-orm
+      POSTGRES_PASSWORD: type-orm
+      POSTGRES_DB: type-orm
     volumes:
-      - prisma-data:/var/lib/postgresql/data
+      - type-orm-data:/var/lib/postgresql/data
 
   backend:
     build:
@@ -17,15 +19,17 @@ services:
     ports:
       - "4000:4000"
     environment:
-      # point at our local Postgres service
-      - DATABASE_URL=postgresql://prisma:prisma@db:5432/prisma
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_USER=type-orm
+      - DB_PASSWORD=type-orm
+      - DB_NAME=type-orm
     depends_on:
       - db
     command: >
       sh -c "
         npm install &&
-        npx prisma migrate deploy &&
-        node prisma/seed.js &&
+        npm run seed &&
         npm run dev
       "
 
@@ -44,4 +48,4 @@ services:
     command: npm start
 
 volumes:
-  prisma-data:
+  type-orm-data:
