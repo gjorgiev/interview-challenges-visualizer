@@ -2,9 +2,13 @@ name: 🌐 Frontend CI/CD
 
 on:
   push:
-    paths:
-      - "frontend/**"
-      - ".github/workflows/frontend-deploy.yml"
+    paths-ignore:
+      - "README.md"
+      - "LICENSE"
+      - "*.md"
+      - "docs/**"
+      - ".gitignore"
+      - "backend/**"
     branches:
       - main
 

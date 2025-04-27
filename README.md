@@ -4,6 +4,8 @@ An open-source fullstack application to visualize and interactively learn algori
 
 Built with **React + Express + Type ORM** and fully **Dockerized** for easy deployment and scalability.
 
+🔗 **Live Demo:** [https://interview-challenges-visualizer-frontend.onrender.com/](https://interview-challenges-visualizer-frontend.onrender.com/)
+
 ---
 
 ## 🚀 Features
@@ -12,8 +14,9 @@ Built with **React + Express + Type ORM** and fully **Dockerized** for easy depl
 - Step-by-step visualizations for algorithm problems
 - TailwindCSS for clean UI and fast prototyping
 - Express API + Type ORM for backend
-- SQLite for local development (PostgreSQL-ready for production)
+- PostgreSQL database
 - Docker Compose to orchestrate frontend and backend
+- Continuous Integration/Continuous Deployment (CI/CD) with GitHub Actions
 
 ---
 
@@ -21,8 +24,9 @@ Built with **React + Express + Type ORM** and fully **Dockerized** for easy depl
 
 - Frontend: **React** + **TailwindCSS**
 - Backend: **Express.js** + **Type ORM**
-- Database: **SQLite** (local) / **PostgreSQL** (production-ready)
+- Database: **PostgreSQL**
 - Containerization: **Docker** + **Docker Compose**
+- CI/CD: **GitHub Actions** + **Render**
 
 ---
 
@@ -52,6 +56,21 @@ docker-compose up --build
 
 ---
 
+## 🔄 CI/CD Pipeline
+
+The project uses GitHub Actions for CI/CD with separate workflows for backend and frontend:
+
+- **Backend workflow**: Triggered when changes are made to backend code or workflow file
+
+  - Runs on push to main branch
+  - Deploys automatically to Render using deploy hooks
+
+- **Frontend workflow**: Triggered when changes are made to frontend code or workflow file
+  - Runs on push to main branch
+  - Deploys automatically to Render using deploy hooks
+
+---
+
 ## 🎯 Usage
 
 - Visit the frontend in your browser.
@@ -65,15 +84,14 @@ docker-compose up --build
 - Add more algorithm visualizations
 - Admin panel to create/update exercises from the UI
 - User authentication
-- Deploy to cloud (AWS, GCP, Vercel, Render)
-- Switch to PostgreSQL for production database
+- Implement testing for both frontend and backend
 
 ---
 
 ## 📄 License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the [GNU General Public License v3.0](LICENSE).
 
 ---
 
-> Built with ❤️ by Georgi (and ChatGPT as your pair programmer 🤖)
+> Built with ❤️ by Georgi (ChatGPT and Claude as the assistant programmers 🤖)

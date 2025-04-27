@@ -2,9 +2,13 @@ name: 🚀 Backend CI/CD
 
 on:
   push:
-    paths:
-      - "backend/**"
-      - ".github/workflows/backend-deploy.yml"
+    paths-ignore:
+      - "README.md"
+      - "LICENSE"
+      - "*.md"
+      - "docs/**"
+      - ".gitignore"
+      - "frontend/**"
     branches:
       - main
 
