@@ -8,9 +8,9 @@ function App() {
   const [log, setLog] = useState([]);
   const [done, setDone] = useState(false);
 
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
-  const [algorithm, setAlgorithm] = useState('');
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [algorithm, setAlgorithm] = useState("");
   const [loading, setLoading] = useState(true);
 
   const MOD = 1000000;
@@ -18,14 +18,16 @@ function App() {
   useEffect(() => {
     async function fetchExercise() {
       try {
-        const res = await fetch('http://localhost:4000/api/exercises/1');
+        const res = await fetch(
+          `${process.env.REACT_APP_API_URL}/api/exercises/1`
+        );
         const data = await res.json();
         setTitle(data.title);
         setDescription(data.description);
         setAlgorithm(data.algorithm);
         setLoading(false);
       } catch (err) {
-        console.error('Failed to fetch exercise:', err);
+        console.error("Failed to fetch exercise:", err);
       }
     }
 
@@ -76,7 +78,9 @@ function App() {
       </div>
 
       <div className="flex items-center gap-2 mb-4">
-        <label htmlFor="nValue" className="text-sm font-medium">N:</label>
+        <label htmlFor="nValue" className="text-sm font-medium">
+          N:
+        </label>
         <input
           id="nValue"
           type="number"
@@ -88,8 +92,19 @@ function App() {
       </div>
 
       <div className="flex gap-4 mb-4">
-        <button onClick={nextStep} disabled={done} className="bg-blue-500 text-white px-4 py-2 rounded">Next Step</button>
-        <button onClick={reset} className="bg-gray-300 text-black px-4 py-2 rounded">Reset</button>
+        <button
+          onClick={nextStep}
+          disabled={done}
+          className="bg-blue-500 text-white px-4 py-2 rounded"
+        >
+          Next Step
+        </button>
+        <button
+          onClick={reset}
+          className="bg-gray-300 text-black px-4 py-2 rounded"
+        >
+          Reset
+        </button>
       </div>
 
       <div className="text-sm mb-2">Step: {step}</div>
