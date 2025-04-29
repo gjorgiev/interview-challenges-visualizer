@@ -57,12 +57,12 @@ function App() {
     }
 
     const next = (prev + curr) % MOD;
-    setLog((l) => [...l, `Step ${step}: ${prev} + ${curr} = ${next}`]);
+    setLog((l) => [...l, `Step ${step + 1}: ${prev} + ${curr} = ${next}`]);
     setPrev(curr);
     setCurr(next);
     setStep((s) => s + 1);
 
-    if (step + 2 >= n) {
+    if (step + 1 >= n) {
       setDone(true);
     }
   };
@@ -84,6 +84,15 @@ function App() {
             <h2 className="text-xl font-semibold mb-6 text-gray-700">Visualization</h2>
             
             <div className="space-y-6">
+              <div className="bg-blue-50 border border-blue-100 rounded-md p-4 mb-4">
+                <h3 className="text-sm font-medium text-blue-800 mb-2">How it works</h3>
+                <p className="text-sm text-blue-700">
+                  The Fibonacci sequence starts with F(0) = 0 and F(1) = 1. For any N ≥ 2, we calculate F(N) by adding the previous two numbers.
+                  To handle large numbers, we only keep the last 6 digits by using modulo 1000000.
+                  Click "Next Step" to see how each number in the sequence is calculated.
+                </p>
+              </div>
+
               <div className="flex items-center gap-3">
                 <label htmlFor="nValue" className="text-sm font-medium text-gray-700">
                   N:
