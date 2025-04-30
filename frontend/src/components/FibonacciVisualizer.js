@@ -74,13 +74,13 @@ function FibonacciVisualizer() {
       <div className="max-w-7xl mx-auto px-4 py-8">
         <h1 className="text-3xl font-bold mb-8 text-center text-gray-800">{title}</h1>
 
-        <div className="mb-6 text-sm bg-white p-4 rounded-lg shadow-sm">
+        <div className="mb-6 text-sm bg-white p-4">
           <p>{description}</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Left Column - Explanation */}
-          <div className="bg-white p-6 rounded-lg shadow-sm">
+          <div className="bg-white p-6">
             <h2 className="text-xl font-semibold mb-6 text-gray-700">Explanation</h2>
             
             <div className="space-y-6">
@@ -151,7 +151,7 @@ function FibonacciVisualizer() {
           </div>
 
           {/* Right Column - Algorithm */}
-          <div className="bg-white p-6 rounded-lg shadow-sm">
+          <div className="bg-white p-6">
             <h2 className="text-xl font-semibold mb-6 text-gray-700">Algorithm</h2>
             <pre className="text-sm bg-gray-50 p-4 rounded-md overflow-auto font-mono">
               {algorithm}
