@@ -11,7 +11,7 @@ Built with **React + Express + Type ORM** and fully **Dockerized** for easy depl
 ## 🚀 Features
 
 - Dynamic exercise descriptions and solutions fetched from a database
-- Step-by-step visualizations for algorithm problems
+- Step-by-step Visual explanation for algorithm problems
 - TailwindCSS for clean UI and fast prototyping
 - Express API + Type ORM for backend
 - PostgreSQL database
@@ -94,4 +94,4 @@ This project is licensed under the [GNU General Public License v3.0](LICENSE).
 
 ---
 
-> Built with ❤️ by Georgi (ChatGPT and Claude as the assistant programmers 🤖)
+> Built with ❤️ by Georgi (ChatGPT, Claude and Cursor AI as the assistant programmers 🤖)
