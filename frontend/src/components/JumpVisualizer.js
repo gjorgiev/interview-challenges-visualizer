@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 function JumpVisualizer() {
-  const [array, setArray] = useState([]);
+  const [array, setArray] = useState([2,3,-1,1,3]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [jumps, setJumps] = useState(0);
   const [visited, setVisited] = useState([]);
@@ -84,7 +84,7 @@ function JumpVisualizer() {
       <div className="max-w-7xl mx-auto px-4 py-8">
         <h1 className="text-3xl font-bold mb-8 text-center text-gray-800">{title}</h1>
 
-        <div className="mb-6 text-sm bg-white p-4 rounded-lg shadow-sm">
+        <div className="mb-6 text-sm bg-white p-4">
           {description.split('\n').map((paragraph, index) => (
             <p key={index} className="mb-2">{paragraph}</p>
           ))}
@@ -92,7 +92,7 @@ function JumpVisualizer() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Left Column - Explanation */}
-          <div className="bg-white p-6 rounded-lg shadow-sm">
+          <div className="bg-white p-6">
             <h2 className="text-xl font-semibold mb-6 text-gray-700">Explanation</h2>
             
             <div className="space-y-6">
@@ -115,6 +115,7 @@ function JumpVisualizer() {
                   id="arrayInput"
                   type="text"
                   placeholder="e.g., 2,3,-1,1"
+                  defaultValue="2,3,-1,1,3"
                   onChange={handleArrayChange}
                   className="border rounded-md p-2 w-full focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                 />
@@ -144,15 +145,18 @@ function JumpVisualizer() {
               <div className="text-sm mb-4">Visited: [{visited.map((v) => (v ? 1 : 0)).join(", ")}]</div>
 
               <div className="bg-gray-100 p-2 rounded max-h-48 overflow-y-auto text-sm">
-                {log.map((line, idx) => (
-                  <div key={idx}>{line}</div>
-                ))}
+                <h3 className="text-sm font-medium text-gray-700 mb-2">Execution Log</h3>
+                <div className="space-y-1">
+                  {log.map((line, idx) => (
+                    <div key={idx}>{line}</div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
 
           {/* Right Column - Algorithm */}
-          <div className="bg-white p-6 rounded-lg shadow-sm">
+          <div className="bg-white p-6 ">
             <h2 className="text-xl font-semibold mb-6 text-gray-700">Algorithm</h2>
             <pre className="text-sm bg-gray-50 p-4 rounded-md overflow-auto font-mono">
               {algorithm}
